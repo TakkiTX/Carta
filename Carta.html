@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>❤Carta para Anny❤</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      background: url('http://thisismyjoystick.com/wp-content/uploads/2013/04/terraria-pic-1.jpg') no-repeat center center fixed;
+      background-size: cover;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow: hidden;
+    }
+
+    .envelope {
+      width: 90%;
+      max-width: 800px;
+      margin: 5vh auto;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      overflow-y: auto;
+      max-height: 90vh;
+      display: none;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: all 0.8s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .envelope.show {
+      display: block;
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .btn-open {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      z-index: 3;
+      position: relative;
+    }
+
+    .btn-open button {
+      background-color: #ff66a3;
+      color: white;
+      font-size: 1.5em;
+      padding: 15px 30px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-open button:hover {
+      background-color: #e05592;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2em;
+      color: #b30059;
+    }
+
+    p {
+      line-height: 1.6;
+      color: #333;
+      margin-bottom: 1em;
+    }
+
+    .hearts {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .heart {
+      position: absolute;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    .spotify-embed {
+      margin-top: 30px;
+      display: flex;
+      justify-content: center;
+    }
+
+    iframe {
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts"></div>
+
+  <div class="btn-open">
+    <button onclick="abrirCarta()">💌 Surpresa 🤗 </button>
+  </div>
+
+  <div class="envelope" id="carta">
+    <h1>❤Carta para Anny meu amor❤</h1>
+    <p>Amor, eu não estou aqui pra apagar teu passado nem fingir que ele não existiu. Sei que ele deixou marcas, medos e silêncios. Mas quero que saiba que estou aqui pra te mostrar, todos os dias, que é possível viver algo diferente...</p>
+
+    <p>E falando nisso, tem algo que eu nunca imaginei dividir com alguém. Sabe aquelas contas de jogos que criei há muitos anos? Elas não são só jogos. Elas guardam momentos em que eu me sentia sozinho...</p>
+
+    <p>Você entendeu isso. Agradeceu, respeitou. Assim como eu respeito as tuas dores, teus tempos, teus limites. A gente se escuta, mesmo com jeitos diferentes. E o mais bonito é que tudo isso está nos unindo cada vez mais...</p>
+
+    <p>Eu te escolhi com verdade, com calma, com amor. E quero continuar te escolhendo. Quero ser teu porto seguro. Não pra que você se esconda do mundo, mas pra que você possa ser quem realmente é — sem medo de cair, porque estarei aqui pra segurar.</p>
+
+    <p>Você é o amor mais leve que já senti. E também o mais verdadeiro.</p>
+
+    <div class="spotify-embed">
+      <iframe style="border-radius:12px" 
+        src="https://open.spotify.com/embed/playlist/6aJ45rseQyo34XcNXlMOR8?utm_source=generator&theme=0" 
+        width="100%" 
+        height="152" 
+        frameBorder="0" 
+        allowfullscreen="" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+        loading="lazy">
+      </iframe>
+    </div>
+  </div>
+
+  <script>
+    const carta = document.getElementById('carta');
+    const hearts = document.querySelector('.hearts');
+
+    function abrirCarta() {
+      document.querySelector('.btn-open').style.display = 'none';
+      carta.classList.add('show');
+    }
+
+    function criarCoracao() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerText = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+      heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+      hearts.appendChild(heart);
+      setTimeout(() => heart.remove(), 6000);
+    }
+
+    setInterval(criarCoracao, 300);
+  </script>
+</body>
+</html>
